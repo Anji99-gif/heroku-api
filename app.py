@@ -4,13 +4,13 @@ from flask import Flask, request, jsonify,render_template
 import pickle
 
 app=Flask(__name__)
-model=pickle.load(open('model.pkl','rb))
+model=pickle.load(open('model.pkl','rb'))
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/clustered',method=['POST])
+@app.route('/clustered',methods=['POST])
 def predict():
     features=[x for x in request.form.values()]
     final_fea=np.array(features)
